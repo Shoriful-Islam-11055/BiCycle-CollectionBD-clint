@@ -3,6 +3,7 @@ import { Carousel } from "react-bootstrap";
 import './Banner.css'
 
 import banner1 from '../../images/banner/banner1_2_1440x1080.jpg'
+import gift from '../../images/banner/more-for-less-animation.gif'
 
 const Banner = () => {
   return (
@@ -46,6 +47,7 @@ const Banner = () => {
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
+      
     </div>
   );
 };
