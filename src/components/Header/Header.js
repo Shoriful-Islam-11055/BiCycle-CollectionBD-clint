@@ -6,7 +6,7 @@ import band_logo from "../../images/logos/cycle-logo111.png";
 const Header = () => {
   return (
     <div>
-      <Navbar bg="dark" variant="dark" expand="lg">
+      <Navbar bg="dark" variant="dark text-center" expand="lg">
         <Container>
           <Navbar.Brand href="#home">
             <img
