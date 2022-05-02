@@ -1,4 +1,4 @@
-import { Button } from "bootstrap";
+import './Footer.css'
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -6,14 +6,14 @@ const Footer = () => {
   return (
     <div className=" bg-dark text-light pt-5">
       <div className="container">
-        <div className="row">
-          <div className="col">
+        <div className="row footer-info">
+          <div className="col-md-3 col-6">
             <h5>Where To Buy</h5>
             <Link className="text-decoration-none text-light" to="/">
               See Authorized Relaters
             </Link>
           </div>
-          <div className="col">
+          <div className="col-md-3 col-6">
             <h5>Crazy Collection</h5>
             <Link className="text-decoration-none text-light mt-3" to="/">
               Join With Us
@@ -28,7 +28,7 @@ const Footer = () => {
             </Link>
             <br />
           </div>
-          <div className="col">
+          <div className="col-md-3 col-6">
             <h5>Press Releases</h5>
             <Link className="text-decoration-none text-light mt-3" to="/">
               Manage Account
@@ -46,7 +46,7 @@ const Footer = () => {
               Products Registration
             </Link>
           </div>
-          <div className="col">
+          <div className="col-md-3 col-6">
             <h5>Others Sites</h5>
             <Link className="text-decoration-none text-light mt-3" to="/">
               Products Pictures
@@ -72,7 +72,7 @@ const Footer = () => {
             <button className="p-2">Media & Contact</button>
           </div>
           <div className="col-8">
-            <div className="d-flex">
+            <div className="d-flex footer-nav">
               <p>
                 <Link className="text-decoration-none text-light mt-3 me-3" to="/">
                   For professional
@@ -91,7 +91,7 @@ const Footer = () => {
                 </Link>
               </p>
               <p>
-                <Link className="text-decoration-none text-light mt-3 me-3" to="/">
+                <Link className="text-decoration-none text-light mt-3" to="/">
                   Voluntary Recall
                 </Link>
               </p>
