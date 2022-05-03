@@ -1,4 +1,4 @@
-@media (max-width: 1000px) and (min-width: 100px) {
+@media (max-width: 770px) and (min-width: 100px) {
     .footer-nav{
         flex-direction: column;
         justify-items: flex-end;
@@ -7,11 +7,23 @@
     
 }
 
-@media (max-width: 710px) and (min-width: 100px) {
+@media (max-width: 710px) and (min-width: 400px) {
     .footer-info{
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         justify-content: center;
         width: 100%;
+    }
+}
+@media (max-width: 399px) and (min-width: 100px) {
+    .footer-info,.pr,.or{
+        grid-template-columns: repeat(1fr);   
+       
+    }
+}
+@media (max-width: 770px) and (min-width: 100px) {
+    .pr,.os{
+        margin-top: 10px;   
+       
     }
 }

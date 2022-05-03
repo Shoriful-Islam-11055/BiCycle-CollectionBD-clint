@@ -1,15 +1,20 @@
-import './Footer.css'
+import "./Footer.css";
 import React from "react";
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee } from '@fortawesome/free-solid-svg-icons'
-
-  
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCoffee, faUserCircle } from "@fortawesome/free-solid-svg-icons";
+import {
+  faFacebookSquare,
+  faInstagramSquare,
+  faYoutubeSquare,
+  faWhatsappSquare,
+  faTwitterSquare,
+} from "@fortawesome/free-brands-svg-icons";
 
 const Footer = () => {
   return (
     <div className=" bg-dark text-light pt-5">
-      <div className="container">
+      <div className="w-75 mx-auto">
         <div className="row footer-info">
           <div className="col-md-3 col-6">
             <h5>Where To Buy</h5>
@@ -33,11 +38,7 @@ const Footer = () => {
             <br />
           </div>
           <div className="col-md-3 col-6">
-            <h5>Press Releases</h5>
-            <Link className="text-decoration-none text-light mt-3" to="/">
-              Manage Account
-            </Link>
-            <br />
+            <h5 className="pr">Press Releases</h5>
             <Link className="text-decoration-none text-light mt-3" to="/">
               About Crazy Collection
             </Link>
@@ -51,7 +52,7 @@ const Footer = () => {
             </Link>
           </div>
           <div className="col-md-3 col-6">
-            <h5>Others Sites</h5>
+            <h5 className="os">Others Sites</h5>
             <Link className="text-decoration-none text-light mt-3" to="/">
               Products Pictures
             </Link>
@@ -72,40 +73,76 @@ const Footer = () => {
         </div>
         <br />
         <div className="row">
-          <div className="col-4">
-            <button className="p-2">Media & Contact</button>
+          <div className="col-6">
+            <button className="px-3 py-1">Follow US</button>
           </div>
-          <div className="col-8 text-center">
+          <div className="col-6">
             <div className="d-flex footer-nav">
               <p>
-                <Link className="text-decoration-none text-light mt-3 me-3" to="/">
-                  For professional
-                </Link>
-              </p>
-
-              <p>
-                <Link className="text-decoration-none text-light mt-3 me-3" to="/">
+                <Link
+                  className="text-decoration-none text-light mt-2 me-3"
+                  to="/"
+                >
                   Contact US
                 </Link>
               </p>
 
               <p>
-                <Link className="text-decoration-none text-light mt-3 me-3" to="/">
+                <Link
+                  className="text-decoration-none text-light mt-2 me-3"
+                  to="/"
+                >
                   Company Info
                 </Link>
               </p>
-              <p>
-                <Link className="text-decoration-none text-light mt-3" to="/">
-                  Voluntary Recall
-                  
-                </Link>
-              </p>
+              <div className="d-flex">
+                <p>
+                  <Link
+                    className="text-decoration-none text-light mt-3 me-2"
+                    to="/"
+                  >
+                    <FontAwesomeIcon icon={faFacebookSquare} className="fs-3" />
+                  </Link>
+                </p>
+                <p>
+                  <Link
+                    className="text-decoration-none text-light mt-3 me-2"
+                    to="/"
+                  >
+                    <FontAwesomeIcon
+                      icon={faInstagramSquare}
+                      className="fs-3"
+                    />
+                  </Link>
+                </p>
+                <p>
+                  <Link
+                    className="text-decoration-none text-light mt-3 me-2"
+                    to="/"
+                  >
+                    <FontAwesomeIcon icon={faYoutubeSquare} className="fs-3" />
+                  </Link>
+                </p>
+                <p>
+                  <Link
+                    className="text-decoration-none text-light me-2 mt-3"
+                    to="/"
+                  >
+                    <FontAwesomeIcon icon={faWhatsappSquare} className="fs-3" />
+                  </Link>
+                </p>
+                <p>
+                  <Link className="text-decoration-none text-light mt-3" to="/">
+                    <FontAwesomeIcon icon={faTwitterSquare} className="fs-3" />
+                  </Link>
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </div>
       <hr />
-      <div>hello</div>
+      <div className="p-3">&copy;2022 copyright shoriful-Islam</div>
     </div>
   );
 };
