@@ -1,6 +1,10 @@
 import './Footer.css'
 import React from "react";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+
+  
 
 const Footer = () => {
   return (
@@ -71,7 +75,7 @@ const Footer = () => {
           <div className="col-4">
             <button className="p-2">Media & Contact</button>
           </div>
-          <div className="col-8">
+          <div className="col-8 text-center">
             <div className="d-flex footer-nav">
               <p>
                 <Link className="text-decoration-none text-light mt-3 me-3" to="/">
@@ -93,6 +97,7 @@ const Footer = () => {
               <p>
                 <Link className="text-decoration-none text-light mt-3" to="/">
                   Voluntary Recall
+                  
                 </Link>
               </p>
             </div>
