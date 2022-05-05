@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Goblin+One&display=swap');
+
+.form-title{
+    font-family: 'Goblin One', cursive;
+    padding: 10px;
+}
 .form-layout, .form-layout-down{
     background-color: #f1f0f0;
     width: 40%;
@@ -10,6 +16,10 @@
 .login-btn{
  text-align: center;
  margin-left: 40px;
+}
+
+.reset-pas{
+    cursor: pointer;
 }
 
 @media (max-width: 908px) and (min-width: 100px) {
@@ -26,8 +36,8 @@
        
     }
 }
-@media (max-width: 372px) and (min-width: 100px) {
+@media (max-width: 390px) and (min-width: 100px) {
     .git-btn{
-        margin-top: 5px;     
+        margin-top: 5px;    
     }
 }

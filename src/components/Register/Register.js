@@ -5,17 +5,12 @@ import {
   faGithub,
   faGooglePlusSquare,
 } from "@fortawesome/free-brands-svg-icons";
-import {
-  faUser,
-  faKey,
-  faEnvelope,
-  faRegistered,
-} from "@fortawesome/free-solid-svg-icons";
-import "./Login.css";
+import { faUser, faKey, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import "../../components/Login/Login.css";
 import or_sign from "../../images/others/or-line.png";
 import { Link } from "react-router-dom";
 
-const Login = () => {
+const Register = () => {
   const [validated, setValidated] = useState(false);
 
   const handleSubmit = (event) => {
@@ -36,7 +31,7 @@ const Login = () => {
         className="form-layout"
       >
         <div className="p-3">
-          <h2 className="text-center fw-bold form-title">LOGIN FORM</h2>
+          <h2 className="text-center fw-bold form-title">Registration Form</h2>
           <Row className="mb-3">
             <Form.Group
               as={Col}
@@ -44,7 +39,6 @@ const Login = () => {
               controlId="validationCustomUsername"
               className="mx-auto "
             >
-              {/* <Form.Label>User Email</Form.Label> */}
               <InputGroup hasValidation>
                 <InputGroup.Text id="inputGroupPrepend">
                   <FontAwesomeIcon icon={faUser} className="fs-3" />
@@ -69,7 +63,6 @@ const Login = () => {
               controlId="validationCustomUsername"
               className="mx-auto"
             >
-              {/* <Form.Label>User Password</Form.Label> */}
               <InputGroup hasValidation>
                 <InputGroup.Text id="inputGroupPrepend">
                   <FontAwesomeIcon icon={faKey} className="fs-3" />
@@ -87,23 +80,44 @@ const Login = () => {
             </Form.Group>
           </Row>
 
+          <Row className="mb-3">
+            <Form.Group
+              as={Col}
+              md="10"
+              controlId="validationCustomUsername"
+              className="mx-auto"
+            >
+              <InputGroup hasValidation>
+                <InputGroup.Text id="inputGroupPrepend">
+                  <FontAwesomeIcon icon={faKey} className="fs-3" />
+                </InputGroup.Text>
+                <Form.Control
+                  type="Password"
+                  placeholder="Repeat Password"
+                  aria-describedby="inputGroupPrepend"
+                  required
+                />
+                <Form.Control.Feedback type="invalid">
+                  Please enter valid password.
+                </Form.Control.Feedback>
+              </InputGroup>
+            </Form.Group>
+          </Row>
+
           <Row>
             <Form.Group as={Col} md="10" className="mx-auto">
-              <div className="d-flex justify-content-between">
-                <Form.Check
-                  required
-                  label="Remember Me"
-                  feedback="You must agree before submitting."
-                  feedbackType="invalid"
-                />
-                <p className="text-danger reset-pas">Forget Password??</p>
-              </div>
+              <Form.Check
+                required
+                label="Agree to terms and conditions"
+                feedback="You must agree before submitting."
+                feedbackType="invalid"
+              />
             </Form.Group>
           </Row>
 
           <div className="text-center">
             <Button className="bg-success px-5 fs-5" type="submit">
-              Login
+              Register
             </Button>
           </div>
         </div>
@@ -134,18 +148,17 @@ const Login = () => {
 
         <div className="text-center pb-2">
           <p className="text-bold fs-5">
-            Don't have an account?
+            Already have account?
             <span>
-              <Link className="text-decoration-none text-danger" to="/register">
-                Register Now!
+              <Link className="text-decoration-none text-danger" to="/login">
+                Login Now!
               </Link>
             </span>
           </p>
           <Button className="fs-5 fw-bold bg-info git-btn">
-            <FontAwesomeIcon icon={faRegistered} className="fs-4" />
             <span className="ms-1">
-              <Link className="text-decoration-none" to="/register">
-                Create an account
+              <Link className="text-decoration-none" to="/login">
+                Login
               </Link>
             </span>
           </Button>
@@ -155,4 +168,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;

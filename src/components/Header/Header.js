@@ -31,7 +31,7 @@ const Header = () => {
             </Nav>
             <Nav className="mx-end">
               <Link className="nav-link" to="/login">
-                SERVICES
+              <button type="button" class="btn btn-outline-light">LOGIN</button>
               </Link>
             </Nav>
           </Navbar.Collapse>
