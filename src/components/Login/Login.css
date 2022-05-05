@@ -1,12 +1,33 @@
-.form-layout{
+.form-layout, .form-layout-down{
     background-color: #f1f0f0;
     width: 40%;
     margin: auto;
 }
+.form-layout-down{
+    background-color: #ebe9e9;
+}
 
-@media (max-width: 770px) and (min-width: 100px) {
-    .form-layout{
-        width: 95%;   
+.login-btn{
+ text-align: center;
+ margin-left: 40px;
+}
+
+@media (max-width: 908px) and (min-width: 100px) {
+    .form-layout, .form-layout-down{
+        width: 80%;
+          
        
+    }
+}
+@media (max-width: 500px) and (min-width: 100px) {
+    .form-layout, .form-layout-down{
+        width: 95%;
+          
+       
+    }
+}
+@media (max-width: 372px) and (min-width: 100px) {
+    .git-btn{
+        margin-top: 5px;     
     }
 }
