@@ -1,0 +1,12 @@
+.form-layout{
+    background-color: #f1f0f0;
+    width: 40%;
+    margin: auto;
+}
+
+@media (max-width: 770px) and (min-width: 100px) {
+    .form-layout{
+        width: 95%;   
+       
+    }
+}

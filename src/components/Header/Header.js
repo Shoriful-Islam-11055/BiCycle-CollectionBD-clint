@@ -29,6 +29,11 @@ const Header = () => {
                 </Link>
               </div>
             </Nav>
+            <Nav className="mx-end">
+              <Link className="nav-link" to="/login">
+                SERVICES
+              </Link>
+            </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
