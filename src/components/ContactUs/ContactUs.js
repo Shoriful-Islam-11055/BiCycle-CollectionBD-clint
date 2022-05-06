@@ -18,7 +18,7 @@ const ContactUs = () => {
       <p className="section-title text-center py-3 mt-3 fs-2 background-info">
         Contact us for more information
       </p>
-      <div class="card mb-3 border-0 p-3 bg-light">
+      <div class="card mb-3 border-0 py-3 bg-light">
         <div>
           <div class="row g-0">
             <div class="col-md-6">
