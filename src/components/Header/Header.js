@@ -8,15 +8,15 @@ const Header = () => {
     <div>
       <Navbar bg="dark" variant="dark text-center" expand="lg">
         <Container>
-          <Navbar.Brand href="#home">
+          {/* <Navbar.Brand href="#home">
             <img
-              src={band_logo}
+              src=""
               width="150"
               height="70"
               className="d-inline-block align-top rounded-3"
               alt="React Bootstrap logo"
             />
-          </Navbar.Brand>
+          </Navbar.Brand> */}
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">

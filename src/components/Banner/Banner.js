@@ -2,8 +2,11 @@ import React from "react";
 import { Carousel } from "react-bootstrap";
 import './Banner.css'
 
-import banner1 from '../../images/banner/banner1_2_1440x1080.jpg'
-import gift from '../../images/banner/more-for-less-animation.gif'
+import banner1 from '../../images/banner/banner1.jpg'
+import banner2 from '../../images/banner/banner2.jpg'
+import banner3 from '../../images/banner/banner3.jpg'
+import banner4 from '../../images/banner/banner4.jpg'
+import banner5 from '../../images/banner/banner5.jpg'
 
 const Banner = () => {
   return (
@@ -20,10 +23,11 @@ const Banner = () => {
             <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
           </Carousel.Caption>
         </Carousel.Item>
+
         <Carousel.Item>
           <img
             className="d-block w-100 banner-image"
-            src={banner1}
+            src={banner2}
             alt="Second slide"
           />
 
@@ -32,15 +36,44 @@ const Banner = () => {
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
           </Carousel.Caption>
         </Carousel.Item>
+
         <Carousel.Item>
           <img
             className="d-block w-100 banner-image"
-            src={banner1}
+            src={banner3}
             alt="Third slide"
           />
 
           <Carousel.Caption>
             <h3>Third slide label</h3>
+            <p>
+              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+            </p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            className="d-block w-100 banner-image"
+            src={banner4}
+            alt="Fourth slide"
+          />
+
+          <Carousel.Caption>
+            <h3>Fourth slide label</h3>
+            <p>
+              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+            </p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            className="d-block w-100 banner-image"
+            src={banner5}
+            alt="Fifth slide"
+          />
+
+          <Carousel.Caption>
+            <h3>Fifth slide label</h3>
             <p>
               Praesent commodo cursus magna, vel scelerisque nisl consectetur.
             </p>
