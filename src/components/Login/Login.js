@@ -36,7 +36,7 @@ const Login = () => {
         className="form-layout"
       >
         <div className="p-3">
-          <h2 className="text-center fw-bold form-title">LOGIN FORM</h2>
+          <h2 className="text-center fw-bold section-title">LOGIN FORM</h2>
           <Row className="mb-3">
             <Form.Group
               as={Col}
