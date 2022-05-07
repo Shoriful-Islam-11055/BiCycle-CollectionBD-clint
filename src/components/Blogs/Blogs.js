@@ -1,5 +1,5 @@
 import React from "react";
-import jsVsNode from "../../images/others/js.PNG";
+import jsVsNode from "../../images/others/js_node.PNG";
 import SQLVsNoSQL from "../../images/others/SQL-Vs-NoSQL1.png";
 
 const Blogs = () => {
