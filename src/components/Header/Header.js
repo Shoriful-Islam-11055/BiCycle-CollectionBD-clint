@@ -10,9 +10,9 @@ const Header = () => {
         <Container>
           {/* <Navbar.Brand href="#home">
             <img
-              src=""
+              src={band_logo}
               width="150"
-              height="70"
+              height="60"
               className="d-inline-block align-top rounded-3"
               alt="React Bootstrap logo"
             />
@@ -24,8 +24,8 @@ const Header = () => {
                 <Link className="nav-link active" aria-current="page" to="/">
                   HOME
                 </Link>
-                <Link className="nav-link" to="/services">
-                  SERVICES
+                <Link className="nav-link" to="/blogs">
+                  BLOGS
                 </Link>
               </div>
             </Nav>

@@ -21,6 +21,7 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
+  const [matchError, setMatchError] = useState("");
 
   const handleEmailRegister = (event) => {
     setEmail(event.target.value);
@@ -47,6 +48,12 @@ const Register = () => {
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
+    }
+
+    if(password !== repeatPassword){
+      setMatchError("Did't match password");
+      event.preventDefault();
+      return;
     }
     createUserWithEmailAndPassword(email, password);
     // setEmail('');
@@ -141,6 +148,7 @@ const Register = () => {
 
           <Row>
             <Form.Group as={Col} md="10" className="mx-auto">
+             <p style={{ color: "red" }}>{matchError}</p>
               <Form.Check
                 required
                 label="Agree to terms and conditions"
