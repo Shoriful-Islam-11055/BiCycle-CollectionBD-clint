@@ -3,7 +3,7 @@ import manufactureInfo from '../../images/others/more-for-less-animation.gif'
 
 const Distribution = () => {
   return (
-    <div className="mx-3">
+    <div className="mx-3 vh-100">
       <p className="section-title text-center py-3 mt-3 fs-2">
         Our Manufacture and Distribution Structure
       </p>
@@ -14,14 +14,9 @@ const Distribution = () => {
           </div>
           <div className = "col-md-6">
             <div className = "card-body">
-              <h5 className = "card-title">Card title</h5>
-              <p className = "card-text">
-                This is a wider card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
-              </p>
-              <p className = "card-text">
-                <small className = "text-muted">Last updated 3 mins ago</small>
+              <h2 className = "card-title">Short description about us</h2>
+              <p className = "card-text fs-4">
+              Our organization was started in 1991 Since then, the company has continued to work with a reputation. We do not have our own retailer showroom. We only import from different countries and manufacture ourselves in our own factory. Through various agents, we export our products outside the country and distribute them to any showroom or various bicycle companies inside the country. Looking at the picture on the left side, we are fully shown how we distribute our products starting from our organization manufacturing.
               </p>
             </div>
           </div>
