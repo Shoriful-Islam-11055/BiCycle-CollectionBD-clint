@@ -1,6 +1,10 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useState } from "react";
 import { Button, Col, Form, InputGroup, Row } from "react-bootstrap";
+import "./Login.css";
+import or_sign from "../../images/others/or-line.png";
+import { Link } from "react-router-dom";
+
+//Import React Fontawesome//
 import {
   faGithub,
   faGooglePlusSquare,
@@ -11,28 +15,51 @@ import {
   faEnvelope,
   faRegistered,
 } from "@fortawesome/free-solid-svg-icons";
-import "./Login.css";
-import or_sign from "../../images/others/or-line.png";
-import { Link } from "react-router-dom";
+
+import React, { useState } from "react";
+import auth from "../../firebase.init";
+import {
+  useSendPasswordResetEmail,
+  useSignInWithEmailAndPassword,
+  useSignInWithGoogle,
+} from "react-firebase-hooks/auth";
 
 const Login = () => {
   const [validated, setValidated] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  
 
-  const handleSubmit = (event) => {
+  const handleLoginEmail = (event) => {
+    setEmail(event.target.value);
+  };
+
+  const handleLoginPassword = (event) => {
+    setPassword(event.target.value);
+  };
+  
+  const [signInWithEmailAndPassword, user, loading, error] =
+  useSignInWithEmailAndPassword(auth);
+
+  const handleLoginSubmit = (event) => {
     const form = event.currentTarget;
+    event.preventDefault();
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
     }
-
+    console.log(email, password)
+    signInWithEmailAndPassword(email, password);
     setValidated(true);
   };
+
+
   return (
     <div className="bg-success p-2">
       <Form
         noValidate
         validated={validated}
-        onSubmit={handleSubmit}
+        onSubmit={handleLoginSubmit}
         className="form-layout"
       >
         <div className="p-3">
@@ -44,13 +71,13 @@ const Login = () => {
               controlId="validationCustomUsername"
               className="mx-auto "
             >
-              {/* <Form.Label>User Email</Form.Label> */}
               <InputGroup hasValidation>
                 <InputGroup.Text id="inputGroupPrepend">
                   <FontAwesomeIcon icon={faUser} className="fs-3" />
                 </InputGroup.Text>
                 <Form.Control
-                  type="text"
+                  onBlur={handleLoginEmail}
+                  type="email"
                   placeholder="User Email"
                   aria-describedby="inputGroupPrepend"
                   required
@@ -69,12 +96,12 @@ const Login = () => {
               controlId="validationCustomUsername"
               className="mx-auto"
             >
-              {/* <Form.Label>User Password</Form.Label> */}
               <InputGroup hasValidation>
                 <InputGroup.Text id="inputGroupPrepend">
                   <FontAwesomeIcon icon={faKey} className="fs-3" />
                 </InputGroup.Text>
                 <Form.Control
+                  onBlur={handleLoginPassword}
                   type="Password"
                   placeholder="Password"
                   aria-describedby="inputGroupPrepend"

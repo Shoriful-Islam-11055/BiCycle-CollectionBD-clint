@@ -10,16 +10,48 @@ import "../../components/Login/Login.css";
 import or_sign from "../../images/others/or-line.png";
 import { Link } from "react-router-dom";
 
+import auth from "../../firebase.init";
+import {
+  useCreateUserWithEmailAndPassword,
+  useSignInWithGoogle,
+} from "react-firebase-hooks/auth";
+
 const Register = () => {
   const [validated, setValidated] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [repeatPassword, setRepeatPassword] = useState("");
+
+  const handleEmailRegister = (event) => {
+    setEmail(event.target.value);
+  };
+
+  const handlePasswordRegister = (event) => {
+    setPassword(event.target.value);
+  };
+
+  const handleRepeatPasswordRegister = (event) => {
+    setRepeatPassword(event.target.value);
+  };
+
+  //Create/ Registration with Email and password
+  const [createUserWithEmailAndPassword, user, loading] =
+    useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+
+  //Create/ Registration with Google Account
+  const [signInWithGoogle] = useSignInWithGoogle(auth);
 
   const handleSubmit = (event) => {
+    event.preventDefault();
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
     }
-
+    createUserWithEmailAndPassword(email, password);
+    // setEmail('');
+    // setPassword('')
+    // setRepeatPassword('')
     setValidated(true);
   };
   return (
@@ -44,7 +76,8 @@ const Register = () => {
                   <FontAwesomeIcon icon={faUser} className="fs-3" />
                 </InputGroup.Text>
                 <Form.Control
-                  type="text"
+                  onBlur={handleEmailRegister}
+                  type="email"
                   placeholder="User Email"
                   aria-describedby="inputGroupPrepend"
                   required
@@ -68,6 +101,7 @@ const Register = () => {
                   <FontAwesomeIcon icon={faKey} className="fs-3" />
                 </InputGroup.Text>
                 <Form.Control
+                  onBlur={handlePasswordRegister}
                   type="Password"
                   placeholder="Password"
                   aria-describedby="inputGroupPrepend"
@@ -92,6 +126,7 @@ const Register = () => {
                   <FontAwesomeIcon icon={faKey} className="fs-3" />
                 </InputGroup.Text>
                 <Form.Control
+                  onBlur={handleRepeatPasswordRegister}
                   type="Password"
                   placeholder="Repeat Password"
                   aria-describedby="inputGroupPrepend"
@@ -122,6 +157,7 @@ const Register = () => {
           </div>
         </div>
       </Form>
+
       <div className="form-layout-down">
         <div className="text-center">
           <img className="w-75" src={or_sign} alt="" />
@@ -129,7 +165,10 @@ const Register = () => {
           <p className="fs-5 fw-bold m-0">With your social media account</p>
         </div>
         <div className="text-center">
-          <Button className="fs-5 fw-bold me-2">
+          <Button
+            onClick={() => signInWithGoogle()}
+            className="fs-5 fw-bold me-2"
+          >
             <FontAwesomeIcon icon={faGooglePlusSquare} className="fs-4" />
             <span className="ms-1">Google</span>
           </Button>
