@@ -8,7 +8,7 @@ import {
 import { faUser, faKey, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import "../../components/Login/Login.css";
 import or_sign from "../../images/others/or-line.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import auth from "../../firebase.init";
 import {
@@ -16,12 +16,14 @@ import {
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
 
+
 const Register = () => {
   const [validated, setValidated] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
   const [matchError, setMatchError] = useState("");
+  const navigate = useNavigate();
 
   const handleEmailRegister = (event) => {
     setEmail(event.target.value);
@@ -61,6 +63,11 @@ const Register = () => {
     // setRepeatPassword('')
     setValidated(true);
   };
+
+  if (user) {
+    navigate("/login");
+  }
+
   return (
     <div className="bg-success p-2">
       <Form

@@ -13,8 +13,8 @@ const InventoryItems = () => {
       <section className="mt-5">
         <h2 className="home-card-title mb-3 text-center">Inventory Items</h2>
         <div className="card-container container">
-          {items.slice(0, 3).map((item) => (
-            <Items key={item.id} item = {item}></Items>
+          {items.slice(0, 6).map((item) => (
+            <Items key={item._id} item = {item}></Items>
           ))}
         </div>
         <p className="text-end container fs-4">

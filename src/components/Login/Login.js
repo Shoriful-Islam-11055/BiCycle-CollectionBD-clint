@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, Col, Form, InputGroup, Row } from "react-bootstrap";
 import "./Login.css";
 import or_sign from "../../images/others/or-line.png";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 //Import React Fontawesome//
 import {
@@ -28,7 +28,7 @@ const Login = () => {
   const [validated, setValidated] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  
+  const navigate = useNavigate();
 
   const handleLoginEmail = (event) => {
     setEmail(event.target.value);
@@ -37,9 +37,20 @@ const Login = () => {
   const handleLoginPassword = (event) => {
     setPassword(event.target.value);
   };
-  
+
+  //Login with email and password
   const [signInWithEmailAndPassword, user, loading, error] =
-  useSignInWithEmailAndPassword(auth);
+    useSignInWithEmailAndPassword(auth);
+
+  //Reset password
+  const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+
+  //Login With google account
+  const [signInWithGoogle] = useSignInWithGoogle(auth);
+
+  //Location setup
+  const location = useLocation();
+  let from = location?.state?.from?.pathname || "/";
 
   const handleLoginSubmit = (event) => {
     const form = event.currentTarget;
@@ -48,11 +59,14 @@ const Login = () => {
       event.preventDefault();
       event.stopPropagation();
     }
-    console.log(email, password)
+    console.log(email, password);
     signInWithEmailAndPassword(email, password);
     setValidated(true);
   };
 
+  if (user) {
+    navigate(from, { replace: true });
+  }
 
   return (
     <div className="bg-success p-2">
@@ -123,7 +137,15 @@ const Login = () => {
                   feedback="You must agree before submitting."
                   feedbackType="invalid"
                 />
-                <p className="text-danger reset-pas">Forget Password??</p>
+                <p
+                  onClick={async () => {
+                    await sendPasswordResetEmail(email);
+                    alert("Sent email");
+                  }}
+                  className="text-danger reset-pas"
+                >
+                  Forget Password??
+                </p>
               </div>
             </Form.Group>
           </Row>
@@ -133,6 +155,8 @@ const Login = () => {
               Login
             </Button>
           </div>
+          
+          {loading && <p>Loading....</p>}
         </div>
       </Form>
       <div className="form-layout-down">
@@ -142,7 +166,10 @@ const Login = () => {
           <p className="fs-5 fw-bold m-0">With your social media account</p>
         </div>
         <div className="text-center">
-          <Button className="fs-5 fw-bold me-2">
+          <Button
+            onClick={() => signInWithGoogle()}
+            className="fs-5 fw-bold me-2"
+          >
             <FontAwesomeIcon icon={faGooglePlusSquare} className="fs-4" />
             <span className="ms-1">Google</span>
           </Button>

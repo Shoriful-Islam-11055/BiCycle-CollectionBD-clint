@@ -9,7 +9,7 @@ const AllItems = () => {
        <h2 className="home-card-title mb-3 text-center mt-2">ALL ITEMS</h2>
         <div className="card-container container">
           {items.map((item) => (
-            <Items key={item.id} item = {item}></Items>
+            <Items key={item._id} item = {item}></Items>
           ))}
       </div>
     </div>
