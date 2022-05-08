@@ -1,9 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Items.css";
 
-const Items = (props) => {
-  const { name, img, description, supplierName, quantity, price } = props.item;
+const Items = ({ item }) => {
+  const { _id, name, img, description, supplierName, quantity, price } = item;
+  const navigate = useNavigate();
+
+  const navigateToCycleDetails = (id) => {
+    navigate(`/ManageStock/${id}`);
+  };
   return (
     <div>
       <div className="card rounded-3 h-100 shadow-lg">
@@ -19,11 +24,12 @@ const Items = (props) => {
             ..........{" "}
           </p>
           <div>
-            <Link to="/appointment">
-              <button className="btn-lg btn btn-primary fs-5 fw-bold w-100">
+              <button
+                onClick={() => navigateToCycleDetails(_id)}
+                className="btn-lg btn btn-primary fs-5 fw-bold w-100"
+              >
                 Manage Stock
               </button>
-            </Link>
           </div>
         </div>
       </div>
