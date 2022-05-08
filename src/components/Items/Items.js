@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import './Items.css'
+import "./Items.css";
 
 const Items = (props) => {
-  const { name, img, description, rating, Fee } = props.items;
+  const { name, img, description, rating, Fee } = props.item;
   return (
     <div>
       <div className="card rounded-3 h-100 shadow-lg">
@@ -20,7 +20,7 @@ const Items = (props) => {
           <div>
             <Link to="/appointment">
               <button className="btn-lg btn btn-primary fs-5 fw-bold w-100">
-                Appointment Book
+                Manage Stock
               </button>
             </Link>
           </div>
