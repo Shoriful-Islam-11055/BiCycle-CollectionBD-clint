@@ -1,9 +1,10 @@
 import React from "react";
 import manufactureInfo from '../../images/others/more-for-less-animation.gif'
+import './Distribution.css'
 
 const Distribution = () => {
   return (
-    <div className="mx-3 vh-100">
+    <div className="mx-3">
       <p className="section-title text-center py-3 mt-3 fs-2">
         Our Manufacture and Distribution Structure
       </p>
