@@ -33,18 +33,23 @@ const Header = () => {
                 <Link className="nav-link active" aria-current="page" to="/">
                   HOME
                 </Link>
-                <Link className="nav-link" to="/manageItems">
-                  MANAGE ITEMS
-                </Link>
-                <Link className="nav-link" to="/addItems">
-                  ADD ITEMS
-                </Link>
-                <Link className="nav-link" to="/myItems">
-                  MY ITEMS
-                </Link>
                 <Link className="nav-link" to="/blogs">
                   BLOGS
                 </Link>
+                {user && (
+                  <>
+                    <Link className="nav-link" to="/manageItems">
+                      MANAGE ITEMS
+                    </Link>
+
+                    <Link className="nav-link" to="/addItems">
+                      ADD ITEMS
+                    </Link>
+                    <Link className="nav-link" to="/myItems">
+                      MY ITEMS
+                    </Link>
+                  </>
+                )}
               </div>
             </Nav>
             <Nav className="mx-end">

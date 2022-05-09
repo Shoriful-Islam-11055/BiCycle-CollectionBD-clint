@@ -19,7 +19,14 @@ function App() {
       <Header></Header>
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
-        <Route path="/manageItems" element={<ManageItems></ManageItems>}></Route>
+        <Route
+          path="/manageItems"
+          element={
+            <RequireAuth>
+              <ManageItems></ManageItems>
+            </RequireAuth>
+          }
+        ></Route>
         <Route
           path="/addItems"
           element={
