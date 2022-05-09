@@ -2,6 +2,7 @@
 
 .section-title{
     font-family: 'Goblin One', cursive;
+    text-decoration: underline;
     padding: 10px;
 }
 .form-layout, .form-layout-down{

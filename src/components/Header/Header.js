@@ -33,9 +33,7 @@ const Header = () => {
                 <Link className="nav-link active" aria-current="page" to="/">
                   HOME
                 </Link>
-                <Link className="nav-link" to="/blogs">
-                  BLOGS
-                </Link>
+    
                 {user && (
                   <>
                     <Link className="nav-link" to="/manageItems">
@@ -50,6 +48,12 @@ const Header = () => {
                     </Link>
                   </>
                 )}
+                 <Link className="nav-link" to="/blogs">
+                  BLOGS
+                </Link>
+                 <Link className="nav-link" to="/about">
+                  ABOUT
+                </Link>
               </div>
             </Nav>
             <Nav className="mx-end">
@@ -62,6 +66,7 @@ const Header = () => {
                   <Button variant="outline-info">LOGIN</Button>
                 )}
               </Link>
+              
             </Nav>
           </Navbar.Collapse>
         </Container>
