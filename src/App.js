@@ -12,6 +12,7 @@ import ManageStock from "./components/ManageStock/ManageStock";
 import MyItems from "./components/MyItems/MyItems";
 import NotFound from "./components/NotFound/NotFound";
 import Register from "./components/Register/Register";
+import RequireAuth from "./components/RequireAuth/RequireAuth";
 function App() {
   return (
     <div className="App">
@@ -19,7 +20,14 @@ function App() {
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/manageItems" element={<ManageItems></ManageItems>}></Route>
-        <Route path="/addItems" element={<AddItems></AddItems>}></Route>
+        <Route
+          path="/addItems"
+          element={
+            <RequireAuth>
+              <AddItems></AddItems>
+            </RequireAuth>
+          }
+        ></Route>
         <Route path="/myItems" element={<MyItems></MyItems>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/register" element={<Register></Register>}></Route>
