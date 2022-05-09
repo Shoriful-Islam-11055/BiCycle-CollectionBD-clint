@@ -18,8 +18,8 @@ const InventoryItems = () => {
           ))}
         </div>
         <p className="text-end container fs-4">
-          <Link className="text-decoration-none" to="/allItems">
-            See All Items
+          <Link className="text-decoration-none" to="/manageItems">
+          Manage Inventories
             <span className="ms-2">
               <FontAwesomeIcon icon={faAngleDoubleRight}></FontAwesomeIcon>
             </span>
