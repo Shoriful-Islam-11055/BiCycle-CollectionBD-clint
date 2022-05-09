@@ -29,6 +29,8 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  
+ 
 
   const handleLoginEmail = (event) => {
     setEmail(event.target.value);
@@ -46,7 +48,7 @@ const Login = () => {
   const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
 
   //Login With google account
-  const [signInWithGoogle] = useSignInWithGoogle(auth);
+  const [signInWithGoogle, user2] = useSignInWithGoogle(auth);
 
   //Location setup
   const location = useLocation();
@@ -64,7 +66,7 @@ const Login = () => {
     setValidated(true);
   };
 
-  if (user) {
+  if (user || user2) {
     navigate(from, { replace: true });
   }
 

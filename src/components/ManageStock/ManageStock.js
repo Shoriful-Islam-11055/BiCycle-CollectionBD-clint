@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
-import { useParams } from "react-router-dom";
+import {  useParams } from "react-router-dom";
 import "./ManageStock.css";
 
 const ManageStock = () => {
   const { productId } = useParams();
-
   const [products, setProducts] = useState({});
+  const [items, setItems] = useState(false);
 
   useEffect(() => {
     const url = `http://localhost:5000/user/${productId}`;
@@ -14,6 +14,41 @@ const ManageStock = () => {
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
+
+ //update quantity
+ const reStockQuantity = (event) => {
+  event.preventDefault();
+  const quantity = parseInt(products.quantity);
+  const add_quantity = parseInt(event.target.number.value);
+  const newQuantity = parseInt(add_quantity + quantity);
+
+  const Updated_user = { quantity: newQuantity };
+
+  //send data to client  update
+  const url = `http://localhost:5000/user/${productId}`
+  fetch(url, {
+    method: "PUT", // or 'PUT'
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(Updated_user),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      setItems(!items)
+      event.target.reset();
+      alert("User Added Successfully");
+    });
+  }
+  
+
+  const quantityReduce = (e) =>{
+    e.preventDefault();
+    const quantity = parseInt(products.quantity);
+    
+  }
+  
+  
   return (
    <div className="bg-manageStock">
         <div className="container">
@@ -46,16 +81,18 @@ const ManageStock = () => {
               </h3>
 
               <div>
-                <Button className="px-5 fs-3 fw-bold mt-2">Distribute</Button>
+                <Button onClick={quantityReduce} className="px-5 fs-3 fw-bold mt-2">Distribute</Button>
               </div>
 
               <div>
                 <div className="mt-5">
+                  <form onSubmit={reStockQuantity}>
                   <label for="inputEmail4" className = "form-label fs-4 fw-bold">
                     Restock products, if needed.
                   </label>
-                  <input type="text" className = "form-control border-3 p-2" />
-                  <Button className="px-5 fs-3 fw-bold mt-2">Add Product</Button>
+                  <input type="number" name="number"  className = "form-control border-3 p-2" />
+                  <Button type="submit"  className="px-5 fs-3 fw-bold mt-2">Update Quantity</Button>
+                  </form>
                 </div>
               </div>
             </div>
