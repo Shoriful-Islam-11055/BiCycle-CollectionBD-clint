@@ -23,8 +23,6 @@ const ManageStock = () => {
   const add_quantity = parseInt(event.target.number.value);
   const newQuantity = parseInt(add_quantity + quantity);
 
-  const update_quantity = { quantity: newQuantity };
-
   //send data to client  update
   const url = `http://localhost:5000/user/${productId}`
   fetch(url, {
@@ -32,14 +30,11 @@ const ManageStock = () => {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(update_quantity),
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      setItems(!items)
-      event.target.reset();
-      alert("User Added Successfully");
-    });
+    body: JSON.stringify({quantity : newQuantity}),
+  }).then((()=>{
+    setProducts({...products, quantity : newQuantity});
+    event.target.reset();
+  }))
   }
   
 
