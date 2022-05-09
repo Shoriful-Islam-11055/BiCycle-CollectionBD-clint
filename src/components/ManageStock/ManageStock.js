@@ -9,7 +9,7 @@ const ManageStock = () => {
   const [items, setItems] = useState(false);
 
   useEffect(() => {
-    const url = `http://localhost:5000/user/${productId}`;
+    const url = `https://stormy-beach-91164.herokuapp.com/user/${productId}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setProducts(data));
@@ -24,7 +24,7 @@ const ManageStock = () => {
   const newQuantity = parseInt(add_quantity + quantity);
 
   //send data to client  update
-  const url = `http://localhost:5000/user/${productId}`
+  const url = `https://stormy-beach-91164.herokuapp.com/user/${productId}`
   fetch(url, {
     method: "PUT", // or 'PUT'
     headers: {
@@ -45,7 +45,7 @@ const ManageStock = () => {
   const newQuantity = quantity - 1;
 
   //send data to client  update
-  const url = `http://localhost:5000/user/${productId}`
+  const url = `https://stormy-beach-91164.herokuapp.com/user/${productId}`
   fetch(url, {
     method: "PUT", 
     headers: {

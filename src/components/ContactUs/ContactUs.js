@@ -3,15 +3,17 @@ import { Button, Col, Form, Row } from "react-bootstrap";
 import "./ContactUs.css";
 const ContactUs = () => {
   const [validated, setValidated] = useState(false);
+  const [notification, setNotification] = useState()
 
   const handleSubmit = (event) => {
     const form = event.currentTarget;
+    event.preventDefault();
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
     }
-
     setValidated(true);
+    setNotification('Thank You! We will give you all update.')
   };
   return (
     <div className="container background-info p-3 mb-3 mt-3">
@@ -80,13 +82,13 @@ const ContactUs = () => {
                     </Form.Control.Feedback>
                   </Form.Group>
                 </Row>
-
                 <div className="text-center Subscribe">
                   <Button variant="outline-dark fs-5 w-100 p-2" type="submit">
                     Subscribe
                   </Button>
                 </div>
               </Form>
+              <p className="text-center fs-4 fw-bold text-success">{notification}</p>
             </div>
           </div>
         </div>

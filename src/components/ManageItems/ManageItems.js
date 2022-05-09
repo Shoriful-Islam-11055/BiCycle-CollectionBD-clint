@@ -13,7 +13,7 @@ const ManageItems = () => {
     const proceed = window.confirm("Are you want to delete!");
     if (proceed) {
       console.log("deleting id", id);
-      const url = `http://localhost:5000/user/${id}`;
+      const url = `https://stormy-beach-91164.herokuapp.com/user/${id}`;
       fetch(url, {
         method: "DELETE",
       })

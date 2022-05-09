@@ -19,8 +19,7 @@ const Banner = () => {
             alt="First slide"
           />
           <Carousel.Caption>
-            <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            <p className="fs-2">Ride as much or as little, as long or as short as you feel.</p>
           </Carousel.Caption>
         </Carousel.Item>
 
@@ -32,8 +31,7 @@ const Banner = () => {
           />
 
           <Carousel.Caption>
-            <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p className="fs-2">When my legs hurt, I say: “Shut up legs! Do what I tell you to do!</p>
           </Carousel.Caption>
         </Carousel.Item>
 
@@ -45,9 +43,8 @@ const Banner = () => {
           />
 
           <Carousel.Caption>
-            <h3>Third slide label</h3>
-            <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+            <p className="fs-2">
+            Nothing compares to the simple pleasure of riding a bike
             </p>
           </Carousel.Caption>
         </Carousel.Item>
@@ -59,9 +56,8 @@ const Banner = () => {
           />
 
           <Carousel.Caption>
-            <h3>Fourth slide label</h3>
-            <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+            <p className="fs-2">
+            A bicycle ride around the world begins with a single pedal stroke.
             </p>
           </Carousel.Caption>
         </Carousel.Item>
@@ -73,9 +69,8 @@ const Banner = () => {
           />
 
           <Carousel.Caption>
-            <h3>Fifth slide label</h3>
-            <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+            <p className="fs-2">
+            The race is won by the rider who can suffer the most.
             </p>
           </Carousel.Caption>
         </Carousel.Item>

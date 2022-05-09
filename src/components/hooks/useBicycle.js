@@ -4,7 +4,7 @@ const useBicycle = () => {
   const [biCycles, setBiCycles] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/user')
+    fetch('https://stormy-beach-91164.herokuapp.com/user')
       .then(res => res.json())
       .then(data => setBiCycles(data));
   }, []);
