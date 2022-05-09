@@ -42,7 +42,14 @@ function App() {
         <Route path="/register" element={<Register></Register>}></Route>
         <Route path="/blogs" element={<Blogs></Blogs>}></Route>
         <Route path="/allItems" element={<AllItems></AllItems>}></Route>
-        <Route path="/manageStock/:productId" element={<ManageStock></ManageStock>}></Route>
+        <Route
+          path="/manageStock/:productId"
+          element={
+            <RequireAuth>
+              <ManageStock></ManageStock>
+            </RequireAuth>
+          }
+        ></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>

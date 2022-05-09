@@ -15,6 +15,7 @@ const ManageStock = () => {
       .then((data) => setProducts(data));
   }, []);
 
+
  //update quantity
  const reStockQuantity = (event) => {
   event.preventDefault();
@@ -22,7 +23,7 @@ const ManageStock = () => {
   const add_quantity = parseInt(event.target.number.value);
   const newQuantity = parseInt(add_quantity + quantity);
 
-  const Updated_user = { quantity: newQuantity };
+  const update_quantity = { quantity: newQuantity };
 
   //send data to client  update
   const url = `http://localhost:5000/user/${productId}`
@@ -31,7 +32,7 @@ const ManageStock = () => {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(Updated_user),
+    body: JSON.stringify(update_quantity),
   })
     .then((response) => response.json())
     .then((data) => {
@@ -42,10 +43,25 @@ const ManageStock = () => {
   }
   
 
-  const quantityReduce = (e) =>{
-    e.preventDefault();
-    const quantity = parseInt(products.quantity);
-    
+//Quantity reduce One  by One
+  const quantityReduce = (event) =>{
+   event.preventDefault();
+  const quantity = parseInt(products.quantity);
+  const newQuantity = quantity - 1;
+
+  //send data to client  update
+  const url = `http://localhost:5000/user/${productId}`
+  fetch(url, {
+    method: "PUT", 
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({quantity: newQuantity}),
+  }).then((()=>{
+    setProducts({...products, quantity : newQuantity});
+    event.target.reset();
+  }))
+
   }
   
   
