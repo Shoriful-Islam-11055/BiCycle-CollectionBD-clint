@@ -45,7 +45,8 @@ const MyItems = () => {
 
     return (
         <div className="mb-3">
-      <h2 className="section-title text-center">Manage All Items</h2>
+          {loading && <p>Loading....</p>}
+      <h2 className="section-title text-center">Your Added Items</h2>
       <div className="manageItem">
         {items.map((item) => (
           <div key={item._id}>
