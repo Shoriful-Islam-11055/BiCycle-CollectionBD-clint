@@ -33,6 +33,9 @@ const Header = () => {
                 <Link className="nav-link active" aria-current="page" to="/">
                   HOME
                 </Link>
+                <Link className="nav-link" to="/allProducts">
+                  All ITEMS
+                </Link>
     
                 {user && (
                   <>

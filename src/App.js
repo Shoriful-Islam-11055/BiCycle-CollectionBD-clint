@@ -20,6 +20,14 @@ function App() {
       <Header></Header>
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
+        <Route
+          path="/allProducts"
+          element={
+            <RequireAuth>
+              <AllItems></AllItems>
+            </RequireAuth>
+          }
+        ></Route>
         <Route path="about" element={<About></About>}></Route>
         <Route
           path="/manageItems"
