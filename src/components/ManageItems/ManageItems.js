@@ -48,13 +48,16 @@ const ManageItems = () => {
                   </h5>
                   <h5 className="card-title">Quantity : {biCycle.quantity}</h5>
                   <h5 className="card-title">Price : {biCycle.price}</h5>
-                  <p className="card-text text-start">
+                  <div className="card-text text-start">
                     <span className="fs-5 fw-bold">Description: </span>
+                    <p className="overflow-wrap">
                     {biCycle.description.length > 150
                       ? biCycle.description.slice(0, 150)
                       : biCycle.description}
                     ..........{" "}
-                  </p>
+                   
+                    </p>
+                  </div>
                   
                   <Button
                     onClick={() => handleUserDelete(biCycle._id)}

@@ -63,7 +63,7 @@ const MyItems = () => {
                   </h5>
                   <h5 className="card-title">Quantity : {item.quantity}</h5>
                   <h5 className="card-title">Price : {item.price}</h5>
-                  <p className="card-text text-start">
+                  <p className="card-text text-start overflow-wrap">
                     <span className="fs-5 fw-bold">Description: </span>
                     {item.description.length > 150
                       ? item.description.slice(0, 150)
